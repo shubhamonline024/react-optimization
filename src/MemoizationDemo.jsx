@@ -11,7 +11,7 @@ const ExpensiveChild = React.memo(({ todos, addTodos, expensiveData }) => {
   const renderTime = () => {
     const start = performance.now();
     let count = 0;
-    for (let i = 0; i < 900_000_000; i++) {
+    for (let i = 0; i < 10_00_000_000; i++) {
       count += 1;
     }
     return (performance.now() - start).toFixed(2);
@@ -87,7 +87,7 @@ const MemoizationDemo = () => {
   const expensiveCalculation = useMemo(() => {
     console.log("💡 Running expensive calculation...");
     let result = 0;
-    for (let i = 0; i < number * 900_000_000; i++) {
+    for (let i = 0; i < number * 10_00_000_000; i++) {
       result += i;
     }
     return `Factorial-like sum for ${number}: ${result.toLocaleString()}`;
